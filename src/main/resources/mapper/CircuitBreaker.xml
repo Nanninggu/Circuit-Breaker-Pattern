@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.CircuitBreakerPattern.mapper.CircuitBreakerMapper">
+
+    <select id="findUserById" resultType="com.example.CircuitBreakerPattern.dto.CircuitBreakerDto">
+    SELECT id, name, email
+        FROM public.circuit_breaker
+        WHERE id = #{id}
+    </select>
+
+    <insert id="insertLogMessage" parameterType="com.example.CircuitBreakerPattern.dto.LogMessageDto">
+        INSERT INTO public.log_message(messages)
+        VALUES (#{LogMessage});
+    </insert>
+
+</mapper>
